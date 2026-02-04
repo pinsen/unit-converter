@@ -1,5 +1,6 @@
 #include "Converter.h"
 #include "Length.h"
+#include "Mass.h"
 
 #include "FileHandler.h"
 #include "CsvHandler.h"
@@ -37,6 +38,7 @@ int main(){
 
     std::string unitOrigin;
     std::string unitTarget;
+    std::string type;
 
     std::cout << "Enter original unit: ";
     std::cin >> unitOrigin;
@@ -44,8 +46,20 @@ int main(){
     std::cout << "Enter target unit: ";
     std::cin >> unitTarget;
 
-
-    Converter* converter = new Length();
+    std::cout << "Enter converter type (Length/Mass)";
+    std::cin >> type;
+    
+    Converter* converter = nullptr;
+    
+    if(type=="Length"){
+        converter = new Length();
+    }else if(type=="Mass"){
+        converter = new Mass();
+    }else{
+        std::cout<<"Invalid type";
+        return -1;
+    }
+    
     std::vector<std::string> originalCol = fileHandler->getColumn(selector);
     std::vector<std::string> resultCol;
 
