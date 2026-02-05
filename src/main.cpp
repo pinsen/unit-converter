@@ -4,6 +4,7 @@
 
 #include "FileHandler.h"
 #include "CsvHandler.h"
+#include "JsonHandler.h"
 
 #include <iostream>
 #include <string>
@@ -12,6 +13,8 @@ FileHandler* getFileHanler(std::string filename) {
     if (filename.find(".csv") != std::string::npos) {
         return new CsvHandler();
 
+    } else if (filename.find(".json")!=std::string::npos){
+        return new JsonHandler();
     } else {
         std::cerr << "File format is not supported!\n";
         return nullptr;

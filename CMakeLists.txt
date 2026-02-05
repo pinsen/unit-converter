@@ -5,11 +5,15 @@ project(unit-converter)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(include)
+include_directories(
+    include
+    external
+)
 
 add_executable(unit-converter
     src/main.cpp
     src/Mass.cpp
     src/Length.cpp
     src/CsvHandler.cpp
+    src/JsonHandler.cpp
 )
