@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-class JasonHandler : public FileHandler {
+class JsonHandler : public FileHandler {
 private:
     nlohmann::json jsonData;
 
